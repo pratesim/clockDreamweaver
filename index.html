@@ -32,7 +32,7 @@
 			var latlon = position.coords.latitude+","+position.coords.longitude;
 			var img_url="http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=170x170&sensor=false";
 			
-			document.getElementById("divMap").innerHTML="<img src="+img_url+">";
+			document.getElementById("divMap").innerHTML="<iframe src="+img_url+"></iframe>";
 		}
 		function onError(error){
 			switch(error.code){
