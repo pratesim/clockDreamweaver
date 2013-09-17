@@ -13,8 +13,7 @@
 }
 
 #divMap{
-	position:fixed;
-	top:250px;
+	position:auto;
 }
 
 #frameMap

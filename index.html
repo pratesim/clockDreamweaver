@@ -11,81 +11,52 @@
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/moreskins.js" type="text/javascript"></script>
 <script src="phonegap.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
 </head> 
 <body> 
 
 <div data-role="page" id="page">
-	<script>
-		document.addEventListener("deviceready",onDeviceReady, false);
-		var x = document.getElementById("divMap");
-		function onDeviceReady(){
-			getLocation();
-		}
-		function getLocation(){
-			if (navigator.geolocation){
-				navigator.geolocation.getCurrentPosition(printPosition, onError); 
-			}
-			else{
-				x.innerHTML = "Localizzazione non supportata dal browser";	
-			}
-		}
-		function printPosition(position){
-			var latlon = position.coords.latitude+","+position.coords.longitude;
-			var map_url="https://maps.google.com/?ie=UTF8&amp;ll="+latlon+"&amp;spn=0.017802,0.042014&amp;t=h&amp;z=15&amp;output=embed";
-			document.getElementById("divMap").innerHTML="<iframe id='frameMap' src="+map_url+"></iframe";
-		}
-		function onError(error){
-			switch(error.code){
-				case error.PERMISSION_DENIED:
-					x.innerHTML="Permesso negato dall'utente";break;
-				case error.POSITION_UNAVAIABLE:
-					x.innerHTML="Informazioni sulla localizzazione non disponibili";break;
-				case error.TIMEOUT:
-					x.innerHTML="La richiesta per la posizione è scaduta";break;
-				case error.UNKNOWN_ERROR:
-					x.innerHTML="Errore sconosciuto";break;	
-			}
-		}
-	</script>
 
 	<div data-role="header">
 		<h1>Ora</h1>
-        <a href="#page2" class="ui-btn-right">Data</a>
+        <a href="#page2" class="ui-btn-right">Mappa</a>
 	</div>
+    
 	<div data-role="content" >
 	  <div id="clock" class="clock"> 
       	<canvas id="_coolclock_auto_id_28" class="CoolClock:swissRail"></canvas>
       </div>
-      <div  id="divMap">
-      	<!-- quando l'app ha rilevato la posizione qui viene mostrata la mappa di google centrata su tale posizione -->
-      </div> 
+      
+      <div data-role="fieldcontain">
+    		<div id="data"><script type="text/javascript">printDate()</script></div> 
+      </div>
     </div>  
+    
 	<div data-role="footer" data-position="fixed">
 		<h4>Pram&copy Corporation</h4>
 	</div>
+    
 </div>
 
 <div data-role="page" id="page2">
 
-	<script type="text/javascript">
-		var today = new Date();
-		var startYear = 1900;
-		function printDate(){
-			document.getElementById("data").innerHTML = "Data: " + today.getDate() + "/" + (today.getMonth()+1) + "/" + (today.getYear()+startYear);
-		}
-	</script>
+	<script>document.addEventListener("deviceready",onDeviceReady, false);</script>
+    
 	<div data-role="header">
-		<a href="#page" class="ui-btn-left">Ora</a>
+		<a href="#page" class="ui-btn-left">Data e Ora</a>
         <h1>Data</h1>
 	</div>
+    
 	<div data-role="content">
-    	<div data-role="fieldcontain">
-    		<div id="data"><script type="text/javascript">printDate()</script></div> 
-    	</div>
+    	<div  id="divMap">
+      	<!-- quando l'app ha rilevato la posizione qui viene mostrata la mappa di google centrata su tale posizione -->
+        </div> 
 	</div>
+    
 	<div data-role="footer" data-position="fixed">
 		<h4>Pram&copy Corporation</h4>
 	</div>
+    
 </div>
 
 </body>
