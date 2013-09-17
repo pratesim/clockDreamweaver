@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+#clock{
+	float: left;
+	width:170px;
+	height:170px;
+	top:20%;	
+}
+
+#_coolclock_auto_id_28{
+	width: 170px;
+	height: 170px;	
+}
+
+#divMap{
+	position:fixed;
+	top:250px;
+}
+
+#frameMap
+{
+	width:300px;
+	height:320px;
+	frameborder:0;
+	scrolling:no;
+	marginheight:0;
+	marginwidth:0;
+}
