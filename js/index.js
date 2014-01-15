@@ -12,7 +12,7 @@ function onDeviceReady(){
 }
 function getLocation(){
 	if (navigator.geolocation){
-		navigator.geolocation.getCurrentPosition(printPosition, onError); 
+		navigator.geolocation.getCurrentPosition(printPosition, onError, {enableHighAccuracy: true}); 
 	}
 	else{
 		document.getElementById("divMap").innerHTML = "Localizzazione non supportata dal browser";	
